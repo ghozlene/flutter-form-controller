@@ -79,10 +79,10 @@ class _MyFlutterFormState extends State<MyFlutterForm> {
                       labelText: 'Distance',
                     ),
                     controller: distController,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.number,
                     validator: validateFloat,
                     inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp('[. 0-9]'))
+                      FilteringTextInputFormatter.allow(RegExp('[0-9][.]'))
                     ],
                   ),
                   SizedBox(
@@ -95,10 +95,10 @@ class _MyFlutterFormState extends State<MyFlutterForm> {
                         suffixStyle: const TextStyle(color: Colors.green),
                         labelText: 'Output power'),
                     controller: outPutController,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.number,
                     validator: validateFloat,
                     inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp('[. 0-9]'))
+                      FilteringTextInputFormatter.allow(RegExp('[0-9][.]'))
                     ],
                   ),
                   SizedBox(
@@ -112,10 +112,10 @@ class _MyFlutterFormState extends State<MyFlutterForm> {
                       labelText: 'Required dosage',
                     ),
                     controller: dosageController,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.number,
                     validator: validateFloat,
                     inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp('[. 0-9]'))
+                      FilteringTextInputFormatter.allow(RegExp('[0-9][.]'))
                     ],
                   ),
                   SizedBox(
@@ -129,10 +129,10 @@ class _MyFlutterFormState extends State<MyFlutterForm> {
                       labelText: 'Exposure time',
                     ),
                     controller: exposureController,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.number,
                     validator: validateFloat,
                     inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp('[. 0-9]'))
+                      FilteringTextInputFormatter.allow(RegExp('[0-9][.]'))
                     ],
                   ),
                   SizedBox(
@@ -147,9 +147,9 @@ class _MyFlutterFormState extends State<MyFlutterForm> {
                           exposureController.text = ((2 *
                                       pi *
                                       L *
-                                      int.parse(distController.text) *
-                                      int.parse(dosageController.text)) /
-                                  int.parse(outPutController.text))
+                                      double.parse(distController.text) *
+                                      double.parse(dosageController.text)) /
+                                  double.parse(outPutController.text))
                               .toString();
                           if (_formKey.currentState.validate()) {
                             Scaffold.of(context).showSnackBar(SnackBar(
